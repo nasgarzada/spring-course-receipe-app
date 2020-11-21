@@ -1,6 +1,10 @@
 package io.course.receipe.domain;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,7 +15,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import java.math.BigDecimal;
 
-@Data
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
 @Entity
 public class Ingredient {
     @Id
@@ -25,4 +32,11 @@ public class Ingredient {
 
     @ManyToOne
     private Recipe recipe;
+
+    public Ingredient(String description, BigDecimal amount, UnitOfMeasure uom, Recipe recipe) {
+        this.description = description;
+        this.amount = amount;
+        this.unitOfMeasure = uom;
+        this.recipe = recipe;
+    }
 }

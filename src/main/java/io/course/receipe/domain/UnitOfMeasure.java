@@ -1,22 +1,22 @@
 package io.course.receipe.domain;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 
-@Data
+@Getter
+@Setter
+@ToString
 @Entity
 public class UnitOfMeasure {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String uom;
-
-    @OneToOne
-    private Ingredient ingredient;
+    private String description;
 }

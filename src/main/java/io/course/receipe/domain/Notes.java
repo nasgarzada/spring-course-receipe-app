@@ -1,6 +1,9 @@
 package io.course.receipe.domain;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +12,9 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.OneToOne;
 
-@Data
+@Getter
+@Setter
+@ToString
 @Entity
 public class Notes {
     @Id
