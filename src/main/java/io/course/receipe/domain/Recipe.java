@@ -1,9 +1,6 @@
 package io.course.receipe.domain;
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -21,9 +18,7 @@ import javax.persistence.OneToOne;
 import java.util.HashSet;
 import java.util.Set;
 
-@Getter
-@Setter
-@ToString
+@Data
 @Entity
 public class Recipe {
     @Id
@@ -44,7 +39,7 @@ public class Recipe {
     private Difficulty difficulty;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
-    private Set<Ingredient> ingredients = new HashSet<>( );
+    private Set<Ingredient> ingredients = new HashSet<>();
 
     @Lob
     private Byte[] image;
