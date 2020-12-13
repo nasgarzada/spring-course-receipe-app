@@ -5,11 +5,18 @@ jobs:
     docker:
       - image: 'circleci/openjdk:11-jdk'
     steps:
-      - checkout
-      - run:
-          name: Analyze on SonarCloud
-          command: mvn verify sonar:sonar
-
+      - checkout    
+      - send_to_sonar:
+          steps:
+            - run:
+                name: Send test results to SonarCloud
+                command: |
+                 mvn verify sonar:sonar \
+                -Dsonar.host.url=https://sonarcloud.io \
+                -Dsonar.organization=nasgarzada \
+                -Dsonar.login=f108662449f3ca61674fe1007df58cd3f233f688 \
+                -Dsonar.projectKey=nasgarzada_spring-course-receipe-app
+                
 workflows:
   main:
     jobs:
