@@ -16,7 +16,12 @@
 
     <properties>
         <java.version>11</java.version>
+        <sonar.projectKey>nasgarzada_spring-course-receipe-app</sonar.projectKey>
+        <sonar.organization>nasgarzada</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>   
     </properties>
+
+
 
     <dependencies>
         <dependency>
